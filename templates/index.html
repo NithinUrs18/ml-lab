@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laptop Price Predictor</title>
+  
+  <style>
+   .btn-primary {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    padding: 12px 20px; /* Add some padding */
+    font-size: 16px; /* Adjust font size */
+    cursor: pointer; /* Add pointer cursor on hover */
+    border-radius: 5px; /* Rounded corners */
+   }
+
+   .btn-primary:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+   }
+  </style>
+</head>
+
+<body style="background: #cae;">
+ <div class="login">
+	<h1 style="color:Indigo;">Laptop Price Predictor</h1>
+
+    <form action="{{ url_for('predict')}}" method="post">
+
+        <!-- Dropdown for Company -->
+        <label style="color:white;" for="company">Company:</label>
+        <select name="company" id="company" required>
+            <option value="Dell">Dell</option>
+            <option value="Lenovo">Lenovo</option>
+            <option value="HP">HP</option>
+            <option value="Asus">Asus</option>
+            <option value="Acer">Apple</option>
+        </select><br><br>
+
+        <!-- Dropdown for TypeName -->
+        <label style="color:white;" for="TypeName">TypeName:</label>
+        <select name="tyTypeNamepe" id="TypeName" required>
+            <option value="Notebook">Notebook</option>
+            <option value="Gaming">Gaming</option>
+            <option value="Ultrabook">Ultrabook</option>
+            <option value="2 in 1 Convertible">2 in 1 Convertible</option>
+            <option value="Workstation">Workstation</option>
+        </select><br><br>
+
+        <!-- Dropdown for Inches -->
+        <label style="color:white;" for="Inches">Inches:</label>
+        <select name="Inches" id="Inches" required>
+            <option value="15.6">15.6</option>
+            <option value="14.0">14.0</option>
+            <option value="13.3">13.3</option>
+            <option value="17.3">17.3</option>
+            <option value="12.5">12.5</option>
+        </select><br><br>
+
+        <!-- Input for Ram -->
+        <label style="color:white;" for="Ram">Ram (GB):</label>
+        <input type="text" name="Ram" id="Ram" placeholder="Enter Ram (e.g., 8)" required /><br><br>
+
+        <!-- Dropdown for GPU -->
+        <label style="color:white;" for="gpu">GPU:</label>
+        <select name="gpu" id="gpu" required>
+            <option value="Intel HD Graphics 620">Intel HD Graphics 620</option>
+            <option value="Intel HD Graphics 520">Intel HD Graphics 520</option>
+            <option value="Intel UHD Graphics 620">Intel UHD Graphics 620</option>
+            <option value="Nvidia GeForce GTX 1050">Nvidia GeForce GTX 1050</option>
+            <option value="Nvidia GeForce GTX 1060">Nvidia GeForce GTX 1060</option>
+        </select><br><br>
+
+        <!-- Dropdown for Operating System -->
+        <label style="color:white;" for="os">Operating System:</label>
+        <select name="os" id="os" required>
+            <option value="Windows 10">Windows 10</option>
+            <option value="No OS">Mac OS</option>
+            <option value="Linux">Linux</option>
+            <option value="Windows 7">Windows 7</option>
+            <option value="Chrome OS">Windows 11</option>
+        </select><br><br>
+
+        <!-- Radio buttons for Touchscreen -->
+        <label style="color:white;">Touchscreen:</label>
+        <input type="radio" name="touchscreen" value="1" required /> Yes
+        <input type="radio" name="touchscreen" value="0" required /> No<br><br>
+
+        <!-- Dropdown for CPU Name -->
+        <label style="color:white;" for="cpu">CPU Name:</label>
+        <select name="cpu" id="cpu" required>
+            <option value="Intel Core i7">Intel Core i7</option>
+            <option value="Intel Core i5">Intel Core i5</option>
+            <option value="Intel Core i3">Intel Core i3</option>
+            <option value="Intel Celeron Dual">Intel Celeron Dual</option>
+            <option value="Intel Pentium Quad">Intel Pentium Quad</option>
+        </select><br><br>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict Price</button>
+    </form>
+
+   <br><br>
+   <h4 style="color:Indigo;">
+       {{ prediction_text }} 
+   </h4>
+
+ </div>
+</body>
+</html>
